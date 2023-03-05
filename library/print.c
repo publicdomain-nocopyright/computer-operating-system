@@ -101,8 +101,11 @@ void log_this(const char* file, const char* format, ...){
 	va_end(variadic_arguments);
 }
 
+
 // TODO: Make a separate variadic arguments function that
 //  handles reset of variadic arguments after its use.
+
+// Function could be named: notate()
 void print_and_log(const char* file, const char* format, ...){
     va_list variadic_arguments;
     va_start(variadic_arguments, format);
