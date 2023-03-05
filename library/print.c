@@ -105,9 +105,10 @@ void print_and_log(const char* file, const char* format, ...){
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 	
-	implementation_print(stdout, format, variadic_arguments);
+
 	implementation_log_this(file, format, variadic_arguments);
-	
+	implementation_print(stdout, format, variadic_arguments);
+
 	va_end(variadic_arguments);
 }
 
