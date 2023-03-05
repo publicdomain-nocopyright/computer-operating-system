@@ -48,7 +48,7 @@ int implementation_print(FILE * stream, const char* format, va_list variadic_arg
  *  @return Error code of vfprintf
  *
  */
-void print(const char* format, ...){
+int print(const char* format, ...){
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 	
