@@ -102,14 +102,18 @@ void log_this(const char* file, const char* format, ...){
 }
 
 void print_and_log(const char* file, const char* format, ...){
-	va_list variadic_arguments;
-	va_start(variadic_arguments, format);
-	
+    va_list variadic_arguments;
+    va_start(variadic_arguments, format);
 
-	implementation_log_this(file, format, variadic_arguments);
-	implementation_print(stdout, format, variadic_arguments);
+    va_list print_arguments;
+    va_copy(print_arguments, variadic_arguments);
+    va_end(variadic_arguments);
 
-	va_end(variadic_arguments);
+    implementation_log_this(file, format, variadic_arguments);
+    implementation_print(stdout, format, print_arguments);
+    va_end(print_arguments);
+
+
 }
 
 
