@@ -130,7 +130,7 @@ int main(){
 	print_notice("notice %s\n", test);
 	print_error("error %s\n", test);
 	print_warning("warning %s\n", test);
-	print_and_log("file.txt", "print and output: %s\n", test);
+	print_and_log(".//file.txt", "print and log: %s\n", test);
 	log_this(".//file.txt", "only_log output2: %s\n", test);
 	return 0;
 
