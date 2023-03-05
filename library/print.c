@@ -110,7 +110,6 @@ void print_and_log(const char* file, const char* format, ...){
     va_list variadic_arguments;
     va_start(variadic_arguments, format);
 
-
     va_list log_arguments;
     va_copy(log_arguments, variadic_arguments);
     implementation_log_this(file, format, log_arguments);
