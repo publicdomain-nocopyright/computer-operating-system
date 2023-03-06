@@ -112,9 +112,9 @@ void print_and_log(const char* file, const char* format, ...){
 
 int main(){
 	char * test = "Outhere";
-	print("Hellows %s\n", test);
-	printf("Hellows %s\n", test);
-	fprintf(stdout,"Hellows %s\n", test);
+	print("print function %s\n", test);
+	printf("printf function %s\n", test);
+	fprintf(stdout,"fprintf function %s\n", test);
 	
 	print_notice("notice %s\n", test);
 	print_error("error %s\n", test);
