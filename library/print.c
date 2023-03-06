@@ -72,17 +72,17 @@ void print_warning(const char* format, ...){
 	va_end(variadic_arguments);
 }
 
-void implementation_log_this(const char* file, const char* format, va_list variadic_arguments){
+void implementation_log_to_file(const char* file, const char* format, va_list variadic_arguments){
 	FILE *file_pointer = fopen(file, "a");  
 	implementation_print(file_pointer, format, variadic_arguments);
 	fclose(file_pointer);
 }
 
-void log_this(const char* file, const char* format, ...){
+void log_to_file(const char* file, const char* format, ...){
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 
-	implementation_log_this(file, format, variadic_arguments);
+	implementation_log_to_file(file, format, variadic_arguments);
 	
 	va_end(variadic_arguments);
 }
@@ -99,7 +99,7 @@ void print_and_log(const char* file, const char* format, ...){
 
     va_list log_arguments;
     va_copy(log_arguments, variadic_arguments);
-    implementation_log_this(file, format, log_arguments);
+    implementation_log_to_file(file, format, log_arguments);
 	va_end(log_arguments);
 
     va_list print_arguments;
@@ -120,7 +120,7 @@ int main(){
 	print_error("error %s\n", test);
 	print_warning("warning %s\n", test);
 	print_and_log(".//file.txt", "print and log: %s\n", test);
-	log_this(".//file.txt", "only_log output2: %s\n", test);
+	log_to_file(".//file.txt", "only_log output2: %s\n", test);
 	notate(".//file.txt", "Alias: notate: print and log: %s\n", test);
 	return 0;
 
