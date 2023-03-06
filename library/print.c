@@ -13,20 +13,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-// Stream: Error, custom, warning, notice, log, file
-
-// Prototypes
-// print(format, variables)
-// print(stream, format, variables)
-// print(error, "%s", var1,var2)
-// print("format")
-// print("text")
-// print("text")
-
-// log() //logarithm? not great.
-// log - prints to both stdout stream and a file.
-
-
 /** @brief Uses vfprintf() C Standard Library function to print to the standard stream.
  * 
  *	Major output functions like print() and print_error() depend on this implementation.
@@ -122,16 +108,6 @@ void print_and_log(const char* file, const char* format, ...){
 
 	va_end(variadic_arguments);
 }
-
-
-
-// log already reserved by C language library
-// log log_error log_info
-// ECHO
-// print_and_log()
-
-
-
 
 int main(){
 	char * test = "Outhere";
