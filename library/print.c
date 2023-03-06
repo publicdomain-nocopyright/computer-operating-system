@@ -92,6 +92,7 @@ void log_this(const char* file, const char* format, ...){
 //  handles reset of variadic arguments after its use.
 
 // Function could be named: notate()
+#define notate print_and_log
 void print_and_log(const char* file, const char* format, ...){
     va_list variadic_arguments;
     va_start(variadic_arguments, format);
@@ -120,6 +121,7 @@ int main(){
 	print_warning("warning %s\n", test);
 	print_and_log(".//file.txt", "print and log: %s\n", test);
 	log_this(".//file.txt", "only_log output2: %s\n", test);
+	notate(".//file.txt", "Alias: notate: print and log: %s\n", test);
 	return 0;
 
 }
