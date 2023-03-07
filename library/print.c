@@ -44,47 +44,52 @@ int print(const char* format, ...){
 	return errcode;
 }
 
-void print_error(const char* format, ...){
+int print_error(const char* format, ...){
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 	
-	implementation_print(stderr, format, variadic_arguments);
+	int errcode = implementation_print(stderr, format, variadic_arguments);
 	
 	va_end(variadic_arguments);
+	return errcode;
 }
 
 
-void print_notice(const char* format, ...){
+int print_notice(const char* format, ...){
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 	
-	implementation_print(stdout, format, variadic_arguments);
+	int errcode = implementation_print(stdout, format, variadic_arguments);
 	
 	va_end(variadic_arguments);
+	return errcode;
 }
 
-void print_warning(const char* format, ...){
+int print_warning(const char* format, ...){
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 	
-	implementation_print(stdout, format, variadic_arguments);
+	int errcode = implementation_print(stdout, format, variadic_arguments);
 	
 	va_end(variadic_arguments);
+	return errcode;
 }
 
-void implementation_log_to_file(const char* file, const char* format, va_list variadic_arguments){
+int implementation_log_to_file(const char* file, const char* format, va_list variadic_arguments){
 	FILE *file_pointer = fopen(file, "a");  
-	implementation_print(file_pointer, format, variadic_arguments);
+	int errcode = implementation_print(file_pointer, format, variadic_arguments);
 	fclose(file_pointer);
+	return errcode;
 }
 
-void log_to_file(const char* file, const char* format, ...){
+int log_to_file(const char* file, const char* format, ...){
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 
-	implementation_log_to_file(file, format, variadic_arguments);
+	int errcode = implementation_log_to_file(file, format, variadic_arguments);
 	
 	va_end(variadic_arguments);
+	return errcode;
 }
 
 
