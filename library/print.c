@@ -8,7 +8,11 @@
  */
 
 // Standard way to compile and run: gcc -Wall -Wextra -Q  print.c && a
-
+# if defined(__STDC_VERSION__)
+#  if (__STDC_VERSION__ < 199901L) 
+	#warning Source code is only expected to work with C99 Standard.
+#  endif
+# endif
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -145,7 +149,7 @@ int main(){
 	print("print function %s\n", test);
 	printf("printf function %s\n", test);
 	fprintf(stdout,"fprintf function %s\n", test);
-	
+	print("%i",__STDC_VERSION__ );
 	assert(print_notice("notice %s\n", test) != 0 );
 	assert(print_error("error %s\n", test) != 0 );
 	assert(print_warning("warning %s\n", test) != 0 );
