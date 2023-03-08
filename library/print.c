@@ -138,18 +138,20 @@ int print_and_log(const char* file, const char* format, ...){
 	return errcode;
 }
 
+#include <assert.h>
+
 int main(){
 	char * test = "Outhere";
 	print("print function %s\n", test);
 	printf("printf function %s\n", test);
 	fprintf(stdout,"fprintf function %s\n", test);
 	
-	print_notice("notice %s\n", test);
-	print_error("error %s\n", test);
-	print_warning("warning %s\n", test);
-	print_and_log(".//file.txt", "print and log: %s\n", test);
-	log_to_file(".//file.txt", "only_log output2: %s\n", test);
-	notate(".//file.txt", "Alias: notate: print and log: %s\n", test);
+	assert(print_notice("notice %s\n", test) != 0 );
+	assert(print_error("error %s\n", test) != 0 );
+	assert(print_warning("warning %s\n", test) != 0 );
+	assert(print_and_log(".//file.txt", "print and log: %s\n", test) != 0 );
+	assert(log_to_file(".//file.txt", "only_log output2: %s\n", test) != 0 );
+	assert(notate(".//file.txt", "Alias: notate: print and log: %s\n", test) != 0 );
 	return 0;
 
 }
