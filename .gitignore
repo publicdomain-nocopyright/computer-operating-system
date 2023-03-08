@@ -5,6 +5,9 @@
 # Unignore all dirs
 !*/
 
+# gitignore all hidden directories (All directory names starting with a dot .)
+!/.*
+
 *.out
 output/
 *.txt
