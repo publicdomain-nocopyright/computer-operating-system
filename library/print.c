@@ -151,7 +151,6 @@ int main(){
 	print("print function %s\n", test);
 	printf("printf function %s\n", test);
 	fprintf(stdout,"fprintf function %s\n", test);
-	print("%i",__STDC_VERSION__ );
 	assert(print_notice("notice %s\n", test) != 0 );
 	assert(print_error("error %s\n", test) != 0 );
 	assert(print_warning("warning %s\n", test) != 0 );
