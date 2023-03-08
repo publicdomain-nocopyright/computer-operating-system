@@ -104,15 +104,24 @@ void print_and_log(const char* file, const char* format, ...){
 
     va_list log_arguments;
     va_copy(log_arguments, variadic_arguments);
-    implementation_log_to_file(file, format, log_arguments);
+    int errcode = implementation_log_to_file(file, format, log_arguments);
 	va_end(log_arguments);
+	if (errcode > 0){
+		va_end(variadic_arguments);
+		return errcode;
+	}
 
     va_list print_arguments;
     va_copy(print_arguments, variadic_arguments);
-    implementation_print(stdout, format, print_arguments);
+    int errcode = implementation_print(stdout, format, print_arguments);
     va_end(print_arguments);
+	if (errcode > 0){
+		va_end(variadic_arguments);
+		return errcode;
+	}
 
 	va_end(variadic_arguments);
+	return errcode;
 }
 
 int main(){
