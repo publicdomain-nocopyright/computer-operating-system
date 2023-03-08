@@ -147,7 +147,7 @@ int print_and_log(const char* file, const char* format, ...){
 #include <assert.h>
 
 int main(){
-	char * test = "Outhere";
+	char * test = "Text sample";
 	print("print function %s\n", test);
 	printf("printf function %s\n", test);
 	fprintf(stdout,"fprintf function %s\n", test);
