@@ -99,7 +99,7 @@ int log_to_file(const char* file, const char* format, ...){
 // Function could be named: notate()
 #define notate print_and_log
 int print_and_log(const char* file, const char* format, ...){
-	int errcode = 0;
+	int errcode;
 
     va_list variadic_arguments;
     va_start(variadic_arguments, format);
