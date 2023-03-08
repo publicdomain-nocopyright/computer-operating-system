@@ -5,8 +5,9 @@
 # Unignore all dirs
 !*/
 
-# gitignore all hidden directories (All directory names starting with a dot .)
-!/.*
+# gitignore all hidden directories and files (All directory names starting with a dot .)
+.*
+!.gitignore
 
 *.out
 output/
