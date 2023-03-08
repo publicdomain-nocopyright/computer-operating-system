@@ -8,11 +8,13 @@
  */
 
 // Standard way to compile and run: gcc -Wall -Wextra -Q  print.c && a
-# if defined(__STDC_VERSION__)
-#  if (__STDC_VERSION__ < 199901L) 
-	#warning Source code is only expected to work with C99 Standard.
-#  endif
-# endif
+#	if defined(__STDC_VERSION__)
+#		if (__STDC_VERSION__ < 199901L) 
+#			warning Source code is only expected to work with C99 Standard.
+#		endif
+#	else 
+#		error Your compiler is way too old to compile this Source Code
+#	endif
 
 #include <stdio.h>
 #include <stdarg.h>
