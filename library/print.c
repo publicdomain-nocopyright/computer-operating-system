@@ -35,6 +35,8 @@ int implementation_print(FILE * stream, const char* format, va_list variadic_arg
  *
  */
 int print(const char* format, ...){
+	int errcode = 0;
+
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 	
@@ -45,6 +47,8 @@ int print(const char* format, ...){
 }
 
 int print_error(const char* format, ...){
+	int errcode = 0;
+
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 	
@@ -56,6 +60,8 @@ int print_error(const char* format, ...){
 
 
 int print_notice(const char* format, ...){
+	int errcode = 0;
+
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 	
@@ -66,6 +72,8 @@ int print_notice(const char* format, ...){
 }
 
 int print_warning(const char* format, ...){
+	int errcode = 0;
+
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 	
@@ -76,6 +84,8 @@ int print_warning(const char* format, ...){
 }
 
 int implementation_log_to_file(const char* file, const char* format, va_list variadic_arguments){
+	int errcode = 0;
+
 	FILE *file_pointer = fopen(file, "a");  
 	int errcode = implementation_print(file_pointer, format, variadic_arguments);
 	fclose(file_pointer);
@@ -83,6 +93,8 @@ int implementation_log_to_file(const char* file, const char* format, va_list var
 }
 
 int log_to_file(const char* file, const char* format, ...){
+	int errcode = 0;
+
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 
@@ -99,7 +111,7 @@ int log_to_file(const char* file, const char* format, ...){
 // Function could be named: notate()
 #define notate print_and_log
 int print_and_log(const char* file, const char* format, ...){
-	int errcode;
+	int errcode = 0;
 
     va_list variadic_arguments;
     va_start(variadic_arguments, format);
