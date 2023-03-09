@@ -146,7 +146,8 @@ int print_and_log(const char* file, const char* format, ...){
 
 #include <assert.h>
 
-int main(){
+int main(int argc, char *argv[]){
+	
 	char * test = "Text sample";
 	print("print function %s\n", test);
 	printf("printf function %s\n", test);
