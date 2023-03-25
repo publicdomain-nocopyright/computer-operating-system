@@ -71,7 +71,7 @@ int print_notice(const char* format, ...){
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 	
-	errcode = implementation_print(stdout, format, variadic_arguments);
+	errcode = implementation_print(stderr, format, variadic_arguments);
 	
 	va_end(variadic_arguments);
 	return errcode;
@@ -83,7 +83,7 @@ int print_warning(const char* format, ...){
 	va_list variadic_arguments;
 	va_start(variadic_arguments, format);
 	
-	errcode = implementation_print(stdout, format, variadic_arguments);
+	errcode = implementation_print(stderr, format, variadic_arguments);
 	
 	va_end(variadic_arguments);
 	return errcode;
