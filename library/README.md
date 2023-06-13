@@ -1,3 +1,5 @@
+custom_print.c is a barebones implementation with explanations for quick tweaking to release your own version of print.
+
 
 #### print.c
 ```
